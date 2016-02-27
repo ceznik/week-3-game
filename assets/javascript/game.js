@@ -1,27 +1,54 @@
-var themes = [superheroes, babies, sports, movies, spellingbee];
 
+//////////////////////GLOBAL VARIABLES/////////////////////////////////////
+var themes = [superheroes, babies, sports, movies, spellingbee];
 var superheroes = ["batman", "spiderman", "black widow", "wonder woman", "iron man", "superman"];
 var babies = ["diaper", "bottle", "stroller", "formula" , "insomnia", "car seat"];
 var sports = ["grand slam", "tennis", "stadium", "cricket", "curling", "scrimmage"];
 var movies = ["scarface", "ferris bueller's day off", "something about mary", "back to school", "the last dragon", "a series of unfortunate events"];
 var spellingbee = ["dichotomy", "plethora", "hypochondria", "concierge", "vicissitude", "centripetal"];
-var jumboclick = function(event){
-	console.log("clicked play now");
-	var jumbotrick = document.getElementsByClassName(".jumbotron");
-	jumbotrick.display="none";
+var themeChoice = "";
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////JUMBOTRON/WELCOME//////////////////////////////
+// var jumboclick = function(event){
+// 	console.log("clicked play now");
+// 	var jumbotrick = document.getElementsByClassName("jumbotron");
+// 	jumbotrick.display="none";
+// ;
+// }
+// var button = document.querySelector(".btn");
+// button.addEventListener("click",jumboclick);
+
+
+// alert("Welcome to my Hangman Demo. Select a theme.");
+///////////////////GET THEME CHOICE///////////////////////////////////////////
+function setThemeChoice(theme){
+	themeChoice = theme;
+	document.getElementById("theme-select").innerHTML = themeChoice;
+	document.getElementsByClassName("btn").disabled = true;
+	console.log(themeChoice);
+	game.configureGameBoard(themeChoice);
 }
-var button = document.querySelector(".btn");
-button.addEventListener("click",jumboclick);
 
-
-alert("Welcome to my Hangman Demo. Select a theme.");
-var themeChoice = prompt("Please select one of the followoing themes: superheroes, babies, sports, movies, spellingbee.");
-console.log(themeChoice);
+////////////////////////////GAME BOARD////////////////////////////////////////////
 var game = {
 	gameBoard:[],
 	gameWord:"",
 	guessesRemaining:11,
+	userWrongGuesses:[],
+
 	configureGameBoard:function(theme){
+		console.log(theme == "superheroes");
 		switch(theme){ //generate a game word based on user's theme selection
 			case "superheroes":
 				this.gameWord = superheroes[Math.floor(Math.random()*superheroes.length)];
@@ -35,10 +62,11 @@ var game = {
 			case "movies":
 				this.gameWord = movies[Math.floor(Math.random()*movies.length)];
 				break;
-			case "spelling-bee":
+			case "spellingbee":
 				this.gameWord = spellingbee[Math.floor(Math.random()*spellingbee.length)];
 				break;
 			default:
+				this.gameWord = "NotSet";
 				break;
 		}
 		for (i=0;i<this.gameWord.length;i++){ //gameBoard is the hidden representation of the gameWord
@@ -50,42 +78,55 @@ var game = {
 				this.gameBoard.push("_");
 			}
 		}
+		// document.getElementById("game-board").innerHTML=this.gameBoard.join(" ");
+
 	},
 	processGuess:function(guess){
 		var correctGuess = false;
+		var gameWordArray = this.gameWord.split("");
 		for (i=0;i<this.gameWord.length;i++){
 			if(guess == this.gameWord[i]){
 				this.gameBoard[i] = this.gameWord[i];
 				correctGuess = true;
+				document.getElementById("game-board").innerHTML = this.gameBoard.join(" ");
 			}
 		}
 		if (!correctGuess){
-			this.guessesRemaining--;
+			document.getElementById("guesses-left").innerHTML = --this.guessesRemaining;
+			this.userWrongGuesses.push(guess);
+			document.getElementById("current-guesses").innerHTML = this.userWrongGuesses.join(",");
+		}
+		if(this.guessesRemaining==0){
+			alert("Sorry, You Lost");
+		}
+		else if(JSON.stringify(this.gameBoard) == JSON.stringify(gameWordArray)){
+			alert("YOU WON!!");
 		}
 	}
 
 }
-game.configureGameBoard(themeChoice);
-console.log(game.gameWord);
-console.log(game.gameBoard);
-var gameWordArray = game.gameWord.split("");
-console.log(gameWordArray);
+
+
+
+
+
+
+
+
+
+///////////////////////MAIN EXECUTION///////////////////////////////////////////
+
+
+
+// game.configureGameBoard(themeChoice);
+// console.log(typeof themeChoice);
+// console.log(themeChoice);
+// console.log(game.gameWord);
+// console.log(game.gameBoard);
+
+// console.log(gameWordArray);
 
 document.onkeyup = function(event){
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-	console.log(userGuess);
 	game.processGuess(userGuess);
-	var html = "<strong>You have chosen the " + themeChoice + " theme. Choose letters to complete the word.</strong>"
-+ "<br> <b>Guesses Remaining: </b>" + game.guessesRemaining
-+ "<br> <strong>" + game.gameBoard + "</strong>";
-
-	document.querySelector('.gameboard').innerHTML = html;
-	if(game.guessesRemaining==0){
-		alert("Sorry, You Lost");
-	}
-	else if(JSON.stringify(game.gameBoard) == JSON.stringify(gameWordArray)){
-		alert("YOU WON!!");
-	}
 }
-
-

@@ -10,14 +10,28 @@
 }
 .theme-icon{
 	width: 100px;
+	background-color: #ffc443;
 
 }
-.theme-container button{
+.theme-container{
 	font-family: 'Passion One', cursive;
 	background-color: #ffc443;
 	text-align: center;
 }
-.btn:hover{
+button:active{
 	background-color: red;
 }
-
+button{
+	background-color: #ffc443;
+}
+.game-area{
+	width: 100%;
+	border: 4px solid black;
+}
+.panel {
+	text-align: center;
+	color: blue;
+	font-family: 'Fjalla One', sans-serif;
+	font-weight: bolder;
+	font-size: 20px;
+}

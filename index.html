@@ -12,21 +12,71 @@
 <div class="jumbotron">
   <h1>HANGMAN!!</h1>
   <p>Welcome to my Hangman demo page. There are a few different themes incorporated into the game, so feel free to them all. Enjoy!!</p>
-  <p><a class="btn btn-default btn-lg" href="#" role="button">Play Now!</a></p>
-</div>
+<!--   //<p><a class="btn btn-default btn-lg" href="#" role="button">Play Now!</a></p>
+ --></div>
 
 <div class = "theme-container">
-<h1>CHOOSE A THEME!!</h1>
-<button type="button"><img class="theme-icon" src="assets/images/movie.png"></button>
-<button type="button"><img class="theme-icon" src="assets/images/baby.png"></button>
-<button type="button"><img class="theme-icon" src="assets/images/hero.png"></button>
-<button type="button"><img class="theme-icon" src="assets/images/athletics.png"></button>
-<button type="button"><img class="theme-icon" src="assets/images/Animals-Bumblebee-icon.png"></button>
+	<h1>CHOOSE A THEME!!</h1>
+
+
+	<div class="btn-group btn-group-justified" role="theme-option">
+	  <div class="btn-group" role="theme-option">
+	    <button type="button" class="btn btn-default" value="movies" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/movie.png"></button>
+	  </div>
+	  <div class="btn-group" role="theme-option">
+	    <button type="button" class="btn btn-default" value="babies" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/baby.png"></button>
+	  </div>
+	  <div class="btn-group" role="theme-option">
+	    <button type="button" class="btn btn-default" value="superheroes" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/hero.png"></button>
+	  </div>
+	  <div class="btn-group" role="theme-option">
+	    <button type="button" class="btn btn-default" value="athletics" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/athletics.png"></button>
+	  </div>
+	  <div class="btn-group" role="theme-option">
+	    <button type="button" class="btn btn-default" value="spellingbee" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/Animals-Bumblebee-icon.png"></button>
+	  </div>
+	</div>
+
+
+
+
+<!-- 	<button type="button" value="movies"><img class="theme-icon" src="assets/images/movie.png"></button>
+	<button type="button" value="babies"><img class="theme-icon" src="assets/images/baby.png"></button>
+	<button type="button" value="superheroes"><img class="theme-icon" src="assets/images/hero.png"></button>
+	<button type="button" value="sports"><img class="theme-icon" src="assets/images/athletics.png"></button>
+	<button type="button" value="spellingbee"><img class="theme-icon" src="assets/images/Animals-Bumblebee-icon.png"></button> -->
 </div>
 
-<div class="gameboard">
-	<script src = "assets/javascript/game.js"></script>
+<div class="game-area">
+	<div class="panel panel-default">
+	  <div class="panel-heading">Theme Selection</div>
+	  <div class="panel-body" id="theme-select">
+	    
+	  </div>
+	</div>
+<div class="panel panel-default">
+  <div class="panel-heading">Guesses Remaining</div>
+  <div class="panel-body" id="guesses-left">
+    11
+  </div>
 </div>
-
+<div class="panel panel-default">
+  <div class="panel-heading">Incorrect Guesses</div>
+  <div class="panel-body" id="current-guesses">
+    _ _ _ _ _ _ _ _
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">Game Board</div>
+  <div class="panel-body" id="game-board">
+    _ _ _ _ _ _ _ _
+  </div>
+</div>
+<p>
+  <button type="button" class="btn btn-primary btn-lg" onclick="location.reload()">Play Again!</button>
+  <button type="button" class="btn btn-default btn-lg">Large button</button>
+</p>
+</div>
+<script src = "assets/javascript/game.js"></script>
 </body>
 </html>
