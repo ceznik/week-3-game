@@ -71,7 +71,7 @@ var game = {
 		}
 		for (i=0;i<this.gameWord.length;i++){ //gameBoard is the hidden representation of the gameWord
 			//console.log(this.gameWord[i]); //for testing
-			if(this.gameWord[i]=="-"||this.gameWord[i]=="'"||this.gameWord[i]==" "){
+			if(this.gameWord[i]=="-"||this.gameWord[i]=="'"||this.gameWord[i]=='&nbsp'){
 				this.gameBoard.push(this.gameWord[i]);
 			}
 			else {
