@@ -1,6 +1,6 @@
 .jumbotron{
 	background-color: #54c70c;
-	text-align: center;	
+	text-align: center;
 }
 .jumbotron h1{
 	font-family: 'Passion One', cursive;
@@ -11,15 +11,17 @@
 .theme-icon{
 	width: 100px;
 	background-color: #ffc443;
-
 }
 .theme-container{
 	font-family: 'Passion One', cursive;
 	background-color: #ffc443;
 	text-align: center;
 }
-button:active{
+.theme-button:hover{
 	background-color: red;
+}
+li{
+	display: inline-block;
 }
 button{
 	background-color: #ffc443;

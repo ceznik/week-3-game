@@ -18,21 +18,13 @@
 <div class = "theme-container">
 	<h1>CHOOSE A THEME!!</h1>
 	<div class="btn-group btn-group-justified" role="theme-option">
-	  <div class="btn-group" role="theme-option">
-	    <button type="button" class="btn btn-default" value="movies" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/movie.png"></button>
-	  </div>
-	  <div class="btn-group" role="theme-option">
-	    <button type="button" class="btn btn-default" value="babies" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/baby.png"></button>
-	  </div>
-	  <div class="btn-group" role="theme-option">
-	    <button type="button" class="btn btn-default" value="superheroes" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/hero.png"></button>
-	  </div>
-	  <div class="btn-group" role="theme-option">
-	    <button type="button" class="btn btn-default" value="sports" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/athletics.png"></button>
-	  </div>
-	  <div class="btn-group" role="theme-option">
-	    <button type="button" class="btn btn-default" value="spellingbee" onclick="setThemeChoice(value)"><img class="theme-icon" src="assets/images/Animals-Bumblebee-icon.png"></button>
-	  </div>
+		<ul>
+			<li><button type="button" class="btn btn-default theme-button" value="movies"><img class="theme-icon" src="assets/images/movie.png"></button></li>
+		  <li><button type="button" class="btn btn-default theme-button" value="babies"><img class="theme-icon" src="assets/images/baby.png"></button></li>
+		  <li><button type="button" class="btn btn-default theme-button" value="superheroes"><img class="theme-icon" src="assets/images/hero.png"></button></li>
+		  <li><button type="button" class="btn btn-default theme-button" value="sports"><img class="theme-icon" src="assets/images/athletics.png"></button></li>
+		  <li><button type="button" class="btn btn-default theme-button" value="spellingbee"><img class="theme-icon" src="assets/images/Animals-Bumblebee-icon.png"></button></li>
+		</ul>
 	</div>
 </div>
 
@@ -40,7 +32,7 @@
 	<div class="panel panel-default">
 	  <div class="panel-heading">Theme Selection</div>
 	  <div class="panel-body" id="theme-select">
-	    
+
 	  </div>
 	</div>
 <div class="panel panel-default">
@@ -65,6 +57,8 @@
   <button type="button" class="btn btn-primary btn-lg" onclick="location.reload()">Play Again!</button>
 </p>
 </div>
+<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
 <script src = "assets/javascript/game.js"></script>
 </body>
 </html>
